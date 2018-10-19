@@ -16,7 +16,8 @@ RUN addgroup -g ${MESH_GID} mesh \
     && adduser -S -G mesh -u ${MESH_UID} mesh
 
 COPY deploy_mesh.sh /bin/deploy_mesh.sh
+RUN chmod +x /bin/deploy_mesh.sh
 
 ARG MESH_ID=0
 
-CMD ["deploy_mesh.sh", "${MESH_ID}"]
+CMD ["/bin/deploy_mesh.sh", "${MESH_ID}"]
