@@ -19,5 +19,4 @@ COPY deploy_mesh.sh /bin/deploy_mesh.sh
 RUN chmod +x /bin/deploy_mesh.sh
 
 ARG MESH_ID=0
-
-CMD ["/bin/deploy_mesh.sh", "$MESH_ID"]
+CMD /bin/deploy_mesh.sh $MESH_ID
