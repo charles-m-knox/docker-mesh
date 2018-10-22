@@ -6,7 +6,7 @@ cd /usr/local/mesh
 # Determine if the variable $1 is defined. If not, read from file /secrets/mesh_id.txt
 MESH_ID=$1
 if [ -z ${1+x} ]; 
-    then MESH_ID=$(cat /secrets/mesh_id.txt);
+    then MESH_ID=$(cat /secrets/mesh-id.txt);
 fi
 echo "MESH_ID=$MESH_ID"
 
