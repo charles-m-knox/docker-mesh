@@ -17,3 +17,9 @@ If needed you can mount files from the host, for example (note that since this i
 ```bash
 docker run -e MESH_ID=012312039019238019283019283109283102938120938 -v /:/host_files:ro --net=host -d --rm -it mesh:alpine
 ```
+
+If you don't want to use an environment variable to specify your `MESH_ID`, you can alternatively mount a file at `/secrets/mesh-id.txt`:
+
+```bash
+docker run -v ./mesh-id.txt:/secrets/mesh-id.txt -v /:/host_files:ro --net=host -d --rm -it mesh:alpine
+```

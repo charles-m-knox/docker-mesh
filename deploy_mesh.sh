@@ -2,7 +2,15 @@
 set -e
 mkdir -p /usr/local/mesh
 cd /usr/local/mesh
-wget http://www.meshcentral.com/public/dh.ashx?mesh=$1 -O mesh_poky64.msh
+
+# Determine if the variable $1 is defined. If not, read from file /secrets/mesh_id.txt
+MESH_ID=$1
+if [ -z ${1+x} ]; 
+    then MESH_ID=$(cat /secrets/mesh_id.txt);
+fi
+echo "MESH_ID=$MESH_ID"
+
+wget http://www.meshcentral.com/public/dh.ashx?mesh=$MESH_ID -O mesh_poky64.msh
 wget http://www.meshcentral.com/public/dh.ashx?agent=18 -O mesh_poky64
 chmod 755 ./mesh_poky64
 ln -s /usr/local/mesh/mesh_poky64 /bin/meshcmd
