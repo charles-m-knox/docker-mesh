@@ -7,7 +7,22 @@ FROM frolvlad/alpine-glibc
 # Optionally run this to debug:
 # docker exec -it CONTAINER_NAME /bin/bash
 
-RUN apk add wget bash nano libx11-dev libxtst
+RUN apk add wget \
+    bash \
+    libx11-dev \
+    libxtst \
+    nmap \
+    avahi \
+    avahi-tools \
+    htop \
+    iftop \
+    nano \
+    tmux \
+    mosquitto \
+    openssl \
+    curl \
+    wget \
+    openntpd
 
 ARG MESH_GID=2000
 ARG MESH_UID=2000
