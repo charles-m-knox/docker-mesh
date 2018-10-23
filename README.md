@@ -21,5 +21,5 @@ docker run -e MESH_ID=012312039019238019283019283109283102938120938 -v /:/host_f
 If you don't want to use an environment variable to specify your `MESH_ID`, you can alternatively mount a file at `/secrets/mesh-id.txt`:
 
 ```bash
-docker run -v $(pwd)/mesh-id.txt:/secrets/mesh-id.txt -v /:/host_files:ro --net=host -d --rm -it mesh:alpine
+docker run -v $(pwd)/mesh-id.txt:/run/secrets/mesh-id -v /:/host_files:ro --net=host -d --rm -it mesh:alpine
 ```
